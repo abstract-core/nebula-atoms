@@ -1,0 +1,38 @@
+{
+  "name": "statikon",
+  "version": "0.1.0",
+  "description": "Gatsby x Notion's shared logic and components.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc --build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jamstack",
+    "react",
+    "gatsby",
+    "typescript",
+    "notion",
+    "notion",
+    "api",
+    "static",
+    "website",
+    "generator"
+  ],
+  "author": "RIMAROK.com",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^2.2.0",
+    "gatsby": "^4.23.0",
+    "react": "^18.1.0",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.54.9",
+    "bootstrap": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.45",
+    "@types/react": "^18.0.20",
+    "@types/react-helmet": "^6.1.5",
+    "typescript": "^4.8.3"
+  }
+}

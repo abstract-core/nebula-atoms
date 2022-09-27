@@ -3,22 +3,23 @@ import { Helmet } from "react-helmet";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
 
+export type LayoutHead = {
+  /**
+   * Only the page title;
+   *  site title will be added for a final shape of
+   *  `{title} - {process.env.WEBSITE_TITLE}`.
+   */
+  title: string;
+  description?: string;
+  /**
+   * If set, includes
+   *  `<meta name="robots" content="noindex" />`.
+   */
+  noIndex?: true;
+};
+
 type LayoutProps = {
-  /** @todo Make it required */
-  head?: {
-    /**
-     * Only the page title;
-     *  site title will be added for a final shape of
-     *  `{title} - {WEBSITE_DATA.TITLE}`.
-     */
-    title: string;
-    description?: string;
-    /**
-     * If set, includes
-     *  `<meta name="robots" content="noindex" />`.
-     */
-    noIndex?: true;
-  };
+  head: LayoutHead;
   children: ReactElement;
 };
 

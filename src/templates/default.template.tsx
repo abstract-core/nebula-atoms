@@ -2,20 +2,21 @@ import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
-import Layout from "../components/layout/Layout";
+import Layout, { LayoutHead } from "../components/layout/Layout";
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
+  head?: Omit<LayoutHead, "title">;
   date: Date;
   blocks: BlockObjectResponse[];
 };
 
 const DefaultTemplate = ({
-  pageContext: { title, date, blocks, contents },
+  pageContext: { title, date, blocks, head, contents },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout>
+    <Layout head={{ title, ...(head || {}) }}>
       <>
         <div id="page-header" className="mb-5">
           <h1>{title}</h1>

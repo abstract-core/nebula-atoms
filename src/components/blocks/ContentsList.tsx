@@ -4,12 +4,28 @@ import richTextToString from "../../helpers/richTextToString";
 import titlePropToString from "../../helpers/titlePropToString";
 import { GlobalContext } from "../../types/GlobalContext";
 
-export default function ContentsList({ contents }: GlobalContext) {
+type ContentsListProps = GlobalContext & {
+  contentType?: string;
+};
+
+export default function ContentsList({
+  contents,
+  contentType: _contentType,
+}: ContentsListProps) {
   return (
     contents && (
       <div className="mt-4 mb-5">
         <>
-          {contents.map((content) => {
+          {(_contentType
+            ? contents.filter((content) => {
+                const contentType = content.properties["Type de contenu"];
+                return (
+                  contentType.type === "select" &&
+                  contentType.select?.name === _contentType
+                );
+              })
+            : contents
+          ).map((content) => {
             const {
               ["Name"]: name,
               ["Url"]: url,

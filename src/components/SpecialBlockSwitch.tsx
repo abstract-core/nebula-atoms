@@ -1,18 +1,24 @@
 import React from "react";
-import { SPECIAL_BLOCKS } from "../enums/special-blocks.enum";
 import { GlobalContext } from "../types/GlobalContext";
 import ContentsList from "./blocks/ContentsList";
 
 type SpecialBlockSwitchProps = GlobalContext & {
-  block: SPECIAL_BLOCKS;
+  block: string;
 };
 
 export default function SpecialBlockSwitch({
   block,
   contents,
 }: SpecialBlockSwitchProps) {
-  switch (block) {
-    case SPECIAL_BLOCKS.CONTENT_LIST:
+  if (block.startsWith("liste-contenu")) {
+    const contentListParams = block.split(" ");
+    if (contentListParams.length === 1) {
       return <ContentsList contents={contents} />;
+    } else {
+      return (
+        <ContentsList contents={contents} contentType={contentListParams[1]} />
+      );
+    }
   }
+  return <></>;
 }

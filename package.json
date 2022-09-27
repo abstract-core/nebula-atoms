@@ -2,9 +2,10 @@
   "name": "statikon",
   "version": "0.1.0",
   "description": "Gatsby x Notion's shared logic and components.",
-  "main": "build/index.js",
+  "main": "./build",
+  "types": "./build/index.d.ts",
   "scripts": {
-    "build": "tsc --build",
+    "build": "npx tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

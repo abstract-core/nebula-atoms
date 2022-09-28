@@ -4,6 +4,7 @@ import {
 } from "@notionhq/client/build/src/api-endpoints";
 import React from "react";
 import { GlobalContext } from "../types/GlobalContext";
+import CalloutBlock from "./blocks/CalloutBlock";
 import HeadingThreeBlock from "./blocks/HeadingThreeBlock";
 import HeadingTwoBlock from "./blocks/HeadingTwoBlock";
 import ImageBlock from "./blocks/ImageBlock";
@@ -46,6 +47,8 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
       return <HeadingTwoBlock block={block} />;
     case "heading_3":
       return <HeadingThreeBlock block={block} />;
+    case "callout":
+      return <CalloutBlock block={block} />;
     default:
       return <></>;
   }

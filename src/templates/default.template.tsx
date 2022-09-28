@@ -8,12 +8,22 @@ import { GlobalContext } from "../types/GlobalContext";
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
   head?: Omit<LayoutHead, "title">;
-  date: Date;
+  createdAt?: Date;
+  publishedAt?: Date;
+  editedAt?: Date;
   blocks: BlockObjectResponse[];
 };
 
 const DefaultTemplate = ({
-  pageContext: { title, date, blocks, head, contents },
+  pageContext: {
+    title,
+    createdAt,
+    publishedAt,
+    editedAt,
+    blocks,
+    head,
+    contents,
+  },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
     <Layout head={{ title, ...(head || {}) }}>
@@ -21,9 +31,19 @@ const DefaultTemplate = ({
         <div id="page-header" className="mb-5">
           <h1>{title}</h1>
         </div>
-        {date && (
+        {createdAt && (
           <p>
-            <>Créé le {new Date(date).toLocaleDateString("fr")}</>
+            <>Créé le {new Date(createdAt).toLocaleDateString("fr")}</>
+          </p>
+        )}
+        {publishedAt && (
+          <p>
+            <>Publié le {new Date(publishedAt).toLocaleDateString("fr")}</>
+          </p>
+        )}
+        {editedAt && (
+          <p>
+            <>Édité le {new Date(editedAt).toLocaleDateString("fr")}</>
           </p>
         )}
         {blocks.map((block) => (

@@ -1,16 +1,15 @@
 import { Link } from "gatsby";
 import * as React from "react";
+import { LinkContent } from "../../types/LinkContent";
 
-type NavbarProps = {
-  className?: string;
+export type NavbarProps = {
+  links: LinkContent[];
 };
 
-function Navbar({ className }: NavbarProps) {
+function Navbar({ links }: NavbarProps) {
   return (
     <nav
-      className={`navbar navbar-expand-lg position-fixed w-100${
-        className ? ` ${className}` : ""
-      }`}
+      className={`navbar navbar-expand-lg position-fixed w-100`}
       style={{ zIndex: 1 }}
     >
       <div className="container-fluid d-flex align-items-center px-3">
@@ -30,13 +29,7 @@ function Navbar({ className }: NavbarProps) {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-lg-0 w-100 justify-content-end">
-            {[
-              /** @todo Get content from configuration */
-              {
-                title: "Accueil",
-                path: "/",
-              },
-            ].map(({ title, path }, index) => {
+            {links.map(({ title, path }, index) => {
               return (
                 <li key={index} className="nav-item">
                   <Link

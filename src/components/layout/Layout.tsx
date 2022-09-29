@@ -1,7 +1,7 @@
 import React, { ReactElement } from "react";
 import { Helmet } from "react-helmet";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
+import Footer, { FooterProps } from "./Footer";
+import Navbar, { NavbarProps } from "./Navbar";
 
 export type LayoutHead = {
   /**
@@ -20,10 +20,12 @@ export type LayoutHead = {
 
 type LayoutProps = {
   head: LayoutHead;
+  navbar: NavbarProps;
   children: ReactElement;
+  footer: FooterProps;
 };
 
-function Layout({ head, children }: LayoutProps) {
+function Layout({ head, navbar, children, footer }: LayoutProps) {
   return (
     <div className="bg-deep text-light">
       <Helmet>
@@ -37,11 +39,11 @@ function Layout({ head, children }: LayoutProps) {
         {head?.noIndex && <meta name="robots" content="noindex" />}
         <script src="/script.js" defer={true}></script>
       </Helmet>
-      <Navbar />
+      <Navbar {...navbar} />
       <div id="main" className="container px-0 pb-5">
         {children}
       </div>
-      <Footer />
+      <Footer {...footer} />
     </div>
   );
 }

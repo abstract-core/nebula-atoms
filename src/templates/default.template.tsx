@@ -2,12 +2,16 @@ import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
+import { FooterProps } from "../components/layout/Footer";
 import Layout, { LayoutHead } from "../components/layout/Layout";
+import { NavbarProps } from "../components/layout/Navbar";
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
   head?: Omit<LayoutHead, "title">;
+  navbar: NavbarProps;
+  footer: FooterProps;
   createdAt?: Date;
   publishedAt?: Date;
   editedAt?: Date;
@@ -22,11 +26,13 @@ const DefaultTemplate = ({
     editedAt,
     blocks,
     head,
+    navbar,
     contents,
+    footer,
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout head={{ title, ...(head || {}) }}>
+    <Layout head={{ title, ...(head || {}) }} navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
           <h1>{title}</h1>

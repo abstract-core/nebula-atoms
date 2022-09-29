@@ -1,18 +1,17 @@
 import * as React from "react";
 import { Link } from "gatsby";
+import { LinkContent } from "../../types/LinkContent";
 
-function Footer() {
+export type FooterProps = {
+  links: LinkContent[];
+};
+
+function Footer({ links }: FooterProps) {
   return (
     <footer className="bg-psik text-highbs">
       <div className="d-flex justify-content-center flex-md-row flex-column text-white">
         <ul className="list-unstyled p-5 col-sm-12 col-md-6 col-xl-4">
-          {[
-            /** @todo Get content from configuration */
-            {
-              title: "Accueil",
-              path: "/",
-            },
-          ].map(({ title, path }, index) => {
+          {links.map(({ title, path }, index) => {
             return (
               <li className="py-1" key={index}>
                 <Link className="pb-2" to={path}>

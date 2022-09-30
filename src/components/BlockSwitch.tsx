@@ -9,6 +9,7 @@ import HeadingThreeBlock from "./blocks/HeadingThreeBlock";
 import HeadingTwoBlock from "./blocks/HeadingTwoBlock";
 import ImageBlock from "./blocks/ImageBlock";
 import ParagraphBlock from "./blocks/ParagraphBlock";
+import QuoteBlock from "./blocks/QuoteBlock";
 import VideoBlock from "./blocks/VideoBlock";
 import SpecialBlockSwitch from "./SpecialBlockSwitch";
 
@@ -49,6 +50,8 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
       return <HeadingThreeBlock block={block} />;
     case "callout":
       return <CalloutBlock block={block} />;
+    case "quote":
+      return <QuoteBlock block={block} />;
     default:
       return <></>;
   }

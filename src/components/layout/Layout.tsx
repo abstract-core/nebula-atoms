@@ -40,7 +40,7 @@ function Layout({ head, navbar, children, footer }: LayoutProps) {
         <script src="/script.js" defer={true}></script>
       </Helmet>
       <Navbar {...navbar} />
-      <div id="main" className="container px-0 pb-5">
+      <div id="main" className="container pb-5">
         {children}
       </div>
       <Footer {...footer} />

@@ -5,6 +5,7 @@ import BlockSwitch from "../components/BlockSwitch";
 import { FooterProps } from "../components/layout/Footer";
 import Layout, { LayoutHead } from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";
+import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
@@ -15,7 +16,7 @@ export type DefaultTemplateContext = GlobalContext & {
   createdAt?: Date;
   publishedAt?: Date;
   editedAt?: Date;
-  blocks: BlockObjectResponse[];
+  blocks: ExtendedBlockObjectResponse[];
 };
 
 const DefaultTemplate = ({

@@ -4,16 +4,18 @@ import { LinkContent } from "../../types/LinkContent";
 
 export type NavbarProps = {
   links: LinkContent[];
+  bg: string;
+  text: string;
 };
 
-function Navbar({ links }: NavbarProps) {
+function Navbar({ links, bg, text }: NavbarProps) {
   return (
     <nav
-      className={`navbar navbar-expand-lg position-fixed w-100`}
+      className={`navbar navbar-expand-lg position-fixed w-100 bg-${bg}`}
       style={{ zIndex: 1 }}
     >
       <div className="container-fluid d-flex align-items-center px-3">
-        <Link className="navbar-brand" to="/">
+        <Link className={`navbar-brand text-${text}`} to="/">
           {process.env.WEBSITE_TITLE}
         </Link>
         <button
@@ -34,7 +36,9 @@ function Navbar({ links }: NavbarProps) {
                 <li key={index} className="nav-item">
                   <Link
                     key={index}
-                    className={`nav-link ${"" /** @todo active */}`}
+                    className={`nav-link text-${text} ${
+                      "" /** @todo active */
+                    }`}
                     to={path}
                   >
                     {title}

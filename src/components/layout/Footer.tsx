@@ -4,11 +4,13 @@ import { LinkContent } from "../../types/LinkContent";
 
 export type FooterProps = {
   links: LinkContent[];
+  bg: string;
+  text: string;
 };
 
-function Footer({ links }: FooterProps) {
+function Footer({ links, bg, text }: FooterProps) {
   return (
-    <footer className="bg-psik text-highbs">
+    <footer className={`bg-${bg} text-${text}`}>
       <div className="d-flex justify-content-center flex-md-row flex-column text-white">
         <ul className="list-unstyled p-5 col-sm-12 col-md-6 col-xl-4">
           {links.map(({ title, path }, index) => {

@@ -20,14 +20,16 @@ export type LayoutHead = {
 
 type LayoutProps = {
   head: LayoutHead;
+  bg: string;
+  text: string;
   navbar: NavbarProps;
   children: ReactElement;
   footer: FooterProps;
 };
 
-function Layout({ head, navbar, children, footer }: LayoutProps) {
+function Layout({ head, bg, text, navbar, children, footer }: LayoutProps) {
   return (
-    <div className="bg-deep text-light">
+    <div className={`bg-${bg} text-${text}`}>
       <Helmet>
         <title>
           {head?.title ? `${head.title} - ` : ""}

@@ -11,6 +11,8 @@ import { GlobalContext } from "../types/GlobalContext";
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
   head?: Omit<LayoutHead, "title">;
+  bg: string;
+  text: string;
   navbar: NavbarProps;
   footer: FooterProps;
   createdAt?: Date;
@@ -27,13 +29,21 @@ const DefaultTemplate = ({
     editedAt,
     blocks,
     head,
+    bg,
+    text,
     navbar,
     contents,
     footer,
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout head={{ title, ...(head || {}) }} navbar={navbar} footer={footer}>
+    <Layout
+      head={{ title, ...(head || {}) }}
+      bg={bg}
+      text={text}
+      navbar={navbar}
+      footer={footer}
+    >
       <>
         <div id="page-header" className="mb-5">
           <h1>{title}</h1>

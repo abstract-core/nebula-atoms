@@ -29,6 +29,16 @@ export default function SpecialBlockSwitch({
           />
         );
       }
+    } else if (tag.startsWith("contact")) {
+      const contactParams = tag.split(" ");
+      return (
+        <button
+          type="button"
+          className={`btn btn-primary contact-${contactParams[1]}`}
+        >
+          Afficher
+        </button>
+      );
     }
     return (
       <ParagraphBlock

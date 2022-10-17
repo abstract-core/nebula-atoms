@@ -6,9 +6,10 @@ export type FooterProps = {
   links: LinkContent[];
   bg: string;
   text: string;
+  a: string;
 };
 
-function Footer({ links, bg, text }: FooterProps) {
+function Footer({ links, bg, text, a }: FooterProps) {
   return (
     <footer className={`bg-${bg} text-${text}`}>
       <div className="d-flex justify-content-center flex-md-row flex-column text-white">
@@ -16,7 +17,7 @@ function Footer({ links, bg, text }: FooterProps) {
           {links.map(({ title, path }, index) => {
             return (
               <li className="py-1" key={index}>
-                <Link className="pb-2" to={path}>
+                <Link className={`pb-2 text-${a}`} to={path}>
                   {title}
                 </Link>
               </li>
@@ -27,7 +28,7 @@ function Footer({ links, bg, text }: FooterProps) {
           <li className="h3 py-2">{process.env.WEBSITE_TITLE}</li>
           <li className="py-2">
             Site développé par Romaric Ruga{" "}
-            <a href="https://rimarok.com/">
+            <a href="https://rimarok.com/" className={`text-${a}`}>
               (freelance ingénierie web et éco-conception)
             </a>
             .

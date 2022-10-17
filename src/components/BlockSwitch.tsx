@@ -22,16 +22,7 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
         block.paragraph.rich_text[0] &&
         block.paragraph.rich_text[0].plain_text.startsWith("{")
       ) {
-        return (
-          <SpecialBlockSwitch
-            block={
-              block.paragraph.rich_text[0].plain_text
-                .split("{")[1]
-                .split("}")[0]
-            }
-            contents={contents}
-          />
-        );
+        return <SpecialBlockSwitch block={block} contents={contents} />;
       } else {
         return (
           <ParagraphBlock

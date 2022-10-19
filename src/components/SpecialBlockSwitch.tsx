@@ -34,7 +34,7 @@ export default function SpecialBlockSwitch({
       return (
         <button
           type="button"
-          className={`btn btn-primary contact-${contactParams[1]}`}
+          className={`btn btn-primary contact-${contactParams[1]} mb-4`}
         >
           Afficher
         </button>

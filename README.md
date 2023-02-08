@@ -3,8 +3,11 @@
 Install `statikon` in local projet using :
 
 ```sh
+npm uninstall statikon
 npm i ../statikon
 ```
+
+Don't forget to run the dev routine build with the following command :
 
 ```sh
 npm run dev

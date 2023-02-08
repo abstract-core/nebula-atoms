@@ -1,4 +1,3 @@
-import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
@@ -66,6 +65,7 @@ const DefaultTemplate = ({
         {blocks.map((block) => (
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}
+        {/** @todo Add GDPR panel */}
       </>
     </Layout>
   );

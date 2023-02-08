@@ -1,5 +1,11 @@
 ## Local dev
 
+Install `statikon` in local projet using :
+
+```sh
+npm i ../statikon
+```
+
 ```sh
 npm run dev
 ```

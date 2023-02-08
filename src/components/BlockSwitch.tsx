@@ -31,8 +31,16 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
           />
         );
       }
+    /** @deprecated Should only occur as `'resized_image'` */
     case "image":
       return <ImageBlock block={block} />;
+    case "resized_image":
+      /**
+       * @todo 1 Create an adaptative component w/ `src-set`
+       * @todo 2 Use client side hydratation to open
+       *  full-size pop-up picture.
+       */
+      return <div></div>;
     case "video":
       return <VideoBlock block={block} />;
     case "heading_2":

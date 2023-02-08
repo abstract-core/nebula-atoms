@@ -16,7 +16,23 @@ export type NumberedListBlockObject = {
   items: NumberedListItemBlockObjectResponse[];
 };
 
+export type ResizedImageBlockObject = {
+  id: string;
+  type: "resized_image";
+  minUrl: string;
+  medUrl?: string;
+  maxUrl?: string;
+};
+
+/**
+ * Not all types are available in `BlockSwitch`.
+ *
+ * @note `ImageBlockObjectResponse` should not be available
+ *  because, thanks to `nebula-genesis`, they should be
+ *  transformed to `ResizedImageBlockObject`.
+ */
 export type ExtendedBlockObjectResponse =
   | BlockObjectResponse
+  | ResizedImageBlockObject
   | BulletedListBlockObject
   | NumberedListBlockObject;

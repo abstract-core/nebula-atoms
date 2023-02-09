@@ -19,9 +19,9 @@ export type NumberedListBlockObject = {
 export type ResizedImageBlockObject = {
   id: string;
   type: "resized_image";
-  minUrl: string;
+  standardUrl: string;
+  minUrl?: string;
   medUrl?: string;
-  maxUrl?: string;
 };
 
 /**

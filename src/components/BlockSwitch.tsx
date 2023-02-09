@@ -10,6 +10,7 @@ import ImageBlock from "./blocks/ImageBlock";
 import NumberedListBlock from "./blocks/NumberedListBlock";
 import ParagraphBlock from "./blocks/ParagraphBlock";
 import QuoteBlock from "./blocks/QuoteBlock";
+import ResizedImage from "./blocks/ResizedImage";
 import VideoBlock from "./blocks/VideoBlock";
 import SpecialBlockSwitch from "./SpecialBlockSwitch";
 
@@ -33,6 +34,7 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
       }
     /** @deprecated Should only occur as `'resized_image'` */
     case "image":
+      console.log("image");
       return <ImageBlock block={block} />;
     case "resized_image":
       /**
@@ -40,7 +42,8 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
        * @todo 2 Use client side hydratation to open
        *  full-size pop-up picture.
        */
-      return <div></div>;
+      console.log("resized_image");
+      return <ResizedImage block={block} />;
     case "video":
       return <VideoBlock block={block} />;
     case "heading_2":

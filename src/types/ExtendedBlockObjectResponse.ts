@@ -3,6 +3,7 @@ import {
   BulletedListItemBlockObjectResponse,
   NumberedListItemBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import { MultisizedImage } from "./MultisizedImage";
 
 export type BulletedListBlockObject = {
   id: string;
@@ -19,10 +20,7 @@ export type NumberedListBlockObject = {
 export type ResizedImageBlockObject = {
   id: string;
   type: "resized_image";
-  standardUrl: string;
-  minUrl?: string;
-  medUrl?: string;
-};
+} & MultisizedImage;
 
 /**
  * Not all types are available in `BlockSwitch`.

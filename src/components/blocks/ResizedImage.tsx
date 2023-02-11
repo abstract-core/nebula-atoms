@@ -12,13 +12,27 @@ export default function ResizedImage({
   const className = "figure-img mt-5 mb-4";
   return (
     <figure className="figure">
-      <img
-        src={block.standardUrl}
-        srcSet={`${block.minUrl} 360w, ${block.medUrl} 800w`}
-        sizes="(max-width: 360px), (max-width: 800px) 360px, 800px"
-        className={className}
-        onClick={() => setModal(true)}
-      />
+      {block.minUrl && block.medUrl ? (
+        <img
+          srcSet={`${block.minUrl} 360w, ${block.medUrl} 800w`}
+          sizes="(max-width: 800px) 360px, (max-width: 1440px) 800px"
+          className={className}
+          onClick={() => setModal(true)}
+        />
+      ) : block.minUrl && !block.medUrl ? (
+        <img
+          srcSet={`${block.minUrl} 360w, ${block.standardUrl}`}
+          sizes="(max-width: 800px) 360px"
+          className={className}
+          onClick={() => setModal(true)}
+        />
+      ) : (
+        <img
+          src={block.standardUrl}
+          className={className}
+          onClick={() => setModal(true)}
+        />
+      )}
       {modal ? (
         <div className="modal" tabIndex={-1}>
           <div className="modal-dialog">
@@ -34,7 +48,11 @@ export default function ResizedImage({
                 ></button>
               </div>
               <div className="modal-body">
-                <p>Modal body text goes here.</p>
+                <img
+                  src={block.standardUrl}
+                  className={className}
+                  onClick={() => setModal(true)}
+                />
               </div>
             </div>
           </div>

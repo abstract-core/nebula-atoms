@@ -15,14 +15,14 @@ export default function ResizedImage({
       {block.minUrl && block.medUrl ? (
         <img
           srcSet={`${block.minUrl} 360w, ${block.medUrl} 800w`}
-          sizes="(max-width: 800px) 360px, (max-width: 1440px) 800px"
+          sizes="(max-width: 800px) 360px, 800px"
           className={className}
           onClick={() => setModal(true)}
         />
       ) : block.minUrl && !block.medUrl ? (
         <img
-          srcSet={`${block.minUrl} 360w, ${block.standardUrl}`}
-          sizes="(max-width: 800px) 360px"
+          srcSet={`${block.minUrl} 360w`}
+          sizes="360px"
           className={className}
           onClick={() => setModal(true)}
         />

@@ -7,6 +7,8 @@ import { NavbarProps } from "../components/layout/Navbar";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
+type AvailableTiers = ["youtube"];
+
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
   head?: Omit<LayoutHead, "title">;
@@ -18,6 +20,7 @@ export type DefaultTemplateContext = GlobalContext & {
   publishedAt?: Date;
   editedAt?: Date;
   blocks: ExtendedBlockObjectResponse[];
+  activatedTiers: AvailableTiers[];
 };
 
 const DefaultTemplate = ({

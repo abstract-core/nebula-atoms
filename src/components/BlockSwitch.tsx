@@ -37,11 +37,6 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
       console.log("image");
       return <ImageBlock block={block} />;
     case "resized_image":
-      /**
-       * @todo 1 Create an adaptative component w/ `src-set`
-       * @todo 2 Use client side hydratation to open
-       *  full-size pop-up picture.
-       */
       console.log("resized_image");
       return <ResizedImage block={block} />;
     case "video":

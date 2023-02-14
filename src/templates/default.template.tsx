@@ -4,10 +4,11 @@ import BlockSwitch from "../components/BlockSwitch";
 import { FooterProps } from "../components/layout/Footer";
 import Layout, { LayoutHead } from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";
+import RGDPBanner from "../components/layout/RGDPBanner";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
-type AvailableTiers = ["youtube"];
+export type AvailableTiers = "youtube";
 
 export type DefaultTemplateContext = GlobalContext & {
   title: string;
@@ -36,6 +37,7 @@ const DefaultTemplate = ({
     navbar,
     contents,
     footer,
+    activatedTiers,
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
@@ -45,6 +47,7 @@ const DefaultTemplate = ({
       text={text}
       navbar={navbar}
       footer={footer}
+      activatedTiers={activatedTiers}
     >
       <>
         <div id="page-header" className="mb-5">
@@ -68,7 +71,7 @@ const DefaultTemplate = ({
         {blocks.map((block) => (
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}
-        {/** @todo Add GDPR panel */}
+        <RGDPBanner activatedTiers={activatedTiers} />
       </>
     </Layout>
   );

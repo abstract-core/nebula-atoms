@@ -34,7 +34,7 @@ export default function ResizedImage({
         />
       )}
       {modal ? (
-        <div className="modal" tabIndex={-1}>
+        <div className="modal d-block" tabIndex={-1}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -42,7 +42,6 @@ export default function ResizedImage({
                 <button
                   type="button"
                   className="btn-close"
-                  data-bs-dismiss="modal"
                   aria-label="Close"
                   onClick={() => setModal(false)}
                 ></button>

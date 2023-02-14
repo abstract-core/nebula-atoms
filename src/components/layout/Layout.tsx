@@ -2,6 +2,8 @@ import React, { ReactElement } from "react";
 import { Helmet } from "react-helmet";
 import Footer, { FooterProps } from "./Footer";
 import Navbar, { NavbarProps } from "./Navbar";
+import RGDPBanner from "./RGDPBanner";
+import { AvailableTiers } from "../../templates/default.template";
 
 export type LayoutHead = {
   /**
@@ -25,9 +27,18 @@ type LayoutProps = {
   navbar: NavbarProps;
   children: ReactElement;
   footer: FooterProps;
+  activatedTiers: AvailableTiers[];
 };
 
-function Layout({ head, bg, text, navbar, children, footer }: LayoutProps) {
+function Layout({
+  head,
+  bg,
+  text,
+  navbar,
+  children,
+  footer,
+  activatedTiers,
+}: LayoutProps) {
   return (
     <div className={`bg-${bg} text-${text}`}>
       <Helmet>
@@ -46,6 +57,7 @@ function Layout({ head, bg, text, navbar, children, footer }: LayoutProps) {
         {children}
       </div>
       <Footer {...footer} />
+      <RGDPBanner activatedTiers={activatedTiers} />
     </div>
   );
 }

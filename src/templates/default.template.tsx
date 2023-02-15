@@ -4,7 +4,6 @@ import BlockSwitch from "../components/BlockSwitch";
 import { FooterProps } from "../components/layout/Footer";
 import Layout, { LayoutHead } from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";
-import RGDPBanner from "../components/layout/RGDPBanner";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
@@ -71,7 +70,6 @@ const DefaultTemplate = ({
         {blocks.map((block) => (
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}
-        <RGDPBanner activatedTiers={activatedTiers} />
       </>
     </Layout>
   );

@@ -12,25 +12,38 @@ export default function VideoBlock({
 }) {
   return (
     <>
-      {block.video.type === "external" ? (
-        <iframe
-          width="560"
-          height="315"
-          src={block.video.external.url.split("/watch?v=").join("/embed/")}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+      {localStorage.getItem("gdpr-youtube") === "true" && !null ? (
+        <>
+          {block.video.type === "external" ? (
+            <iframe
+              width="560"
+              height="315"
+              src={block.video.external.url.split("/watch?v=").join("/embed/")}
+              title="YouTube video player"
+              style={{ border: 0 }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <></>
+          )}
+          {block.video.caption && (
+            <p className="small">
+              <RichTextRenderer
+                richTexts={block.video.caption as TextRichTextItemResponse[]}
+              />
+            </p>
+          )}
+        </>
       ) : (
-        <></>
-      )}
-      {block.video.caption && (
-        <p className="small">
-          <RichTextRenderer
-            richTexts={block.video.caption as TextRichTextItemResponse[]}
-          />
-        </p>
+        <div className="card border m-5 p-5">
+          <div className="card-body w-100">
+            <p className="card-text">Veuillez accepter les cookies.</p>
+            <a href="#" className="card-link">
+              Another link
+            </a>
+          </div>
+        </div>
       )}
     </>
   );

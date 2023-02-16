@@ -5,20 +5,28 @@ import { AvailableTiers } from "../../templates/default.template";
 export type RGDPBannerProps = { activatedTiers: AvailableTiers[] };
 
 function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
-  const [isChecked, setIsChecked] = React.useState(Boolean);
-  const [tier, setTier] = React.useState(activatedTiers);
   const [showModal, setShowModal] = React.useState(true);
 
+  const defaultStorage = () => {
+    activatedTiers.map((activatedTier) => {
+      localStorage.getItem(`gdpr-${activatedTier}`) === null
+        ? localStorage.setItem(`gdpr-${activatedTier}`, "false")
+        : "";
+    });
+  };
+
   const handleChange = (event: any) => {
-    setIsChecked(event.target.checked);
-    setTier(event.target.id);
+    localStorage.setItem(
+      `gdpr-${event.target.id}`,
+      JSON.stringify(event.target.checked)
+    );
   };
 
   const handleSubmit = () => {
-    localStorage.setItem(`gdpr-${tier}`, JSON.stringify(isChecked));
-    console.log(localStorage);
+    defaultStorage();
     setShowModal(false);
-    location.reload();
+    console.log(localStorage);
+    // location.reload();
   };
 
   const clear = () => {
@@ -31,7 +39,8 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
   return (
     <>
       <button onClick={clear}>RESET LOCAL STORAGE</button>
-      {showModal && localStorage.getItem(`gdpr-${tier}`) === null ? (
+      {(showModal && localStorage.getItem("gdpr-Youtube") === null) ||
+      localStorage.getItem("gdpr-Soundcloud") === null ? (
         <div
           className="modal d-block"
           id="cookieconsent3"
@@ -60,7 +69,6 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
                         className="form-check-input"
                         type="checkbox"
                         id={activatedTier}
-                        defaultChecked={isChecked}
                         onChange={handleChange}
                       />
                       <label

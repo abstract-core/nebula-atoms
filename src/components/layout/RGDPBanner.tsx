@@ -63,6 +63,9 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
                         className="form-check-input"
                         type="checkbox"
                         id={activatedTier}
+                        defaultChecked={Boolean(
+                          localStorage.getItem(`gdpr-${activatedTier}`)
+                        )}
                         onChange={handleChange}
                       />
                       <label

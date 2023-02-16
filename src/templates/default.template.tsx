@@ -7,7 +7,7 @@ import { NavbarProps } from "../components/layout/Navbar";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
-export type AvailableTiers = "youtube" | "soundcloud";
+export type AvailableTiers = "Youtube" | "Soundcloud";
 
 export type DefaultTemplateContext = GlobalContext & {
   title: string;

@@ -12,7 +12,7 @@ export default function VideoBlock({
 }) {
   return (
     <>
-      {localStorage.getItem("gdpr-youtube") === "true" && !null ? (
+      {localStorage.getItem("gdpr-Youtube") === "true" && !null ? (
         <>
           {block.video.type === "external" ? (
             <iframe

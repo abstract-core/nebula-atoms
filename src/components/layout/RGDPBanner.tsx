@@ -5,8 +5,6 @@ import { AvailableTiers } from "../../templates/default.template";
 export type RGDPBannerProps = { activatedTiers: AvailableTiers[] };
 
 function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
-  const [showModal, setShowModal] = React.useState(true);
-
   const defaultStorage = () => {
     activatedTiers.map((activatedTier) => {
       localStorage.getItem(`gdpr-${activatedTier}`) === null
@@ -24,22 +22,17 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
 
   const handleSubmit = () => {
     defaultStorage();
-    setShowModal(false);
-    console.log(localStorage);
-    // location.reload();
+    location.reload();
   };
 
   const clear = () => {
     localStorage.clear();
-    console.log("clear");
-    setShowModal(true);
-    console.log(localStorage);
   };
 
   return (
     <>
       <button onClick={clear}>RESET LOCAL STORAGE</button>
-      {(showModal && localStorage.getItem("gdpr-Youtube") === null) ||
+      {localStorage.getItem("gdpr-Youtube") === null ||
       localStorage.getItem("gdpr-Soundcloud") === null ? (
         <div
           className="modal d-block"

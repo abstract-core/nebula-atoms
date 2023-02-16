@@ -10,9 +10,8 @@ export default function VideoBlock({
 }: {
   block: VideoBlockObjectResponse;
 }) {
-  
   const clear = () => {
-    localStorage.clear();
+    localStorage.removeItem("gdpr-Youtube");
     location.reload();
   };
 

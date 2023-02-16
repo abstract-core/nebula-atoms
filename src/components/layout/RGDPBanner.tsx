@@ -13,7 +13,7 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
     });
   };
 
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     localStorage.setItem(
       `gdpr-${event.target.id}`,
       JSON.stringify(event.target.checked)
@@ -27,6 +27,7 @@ function RGDPBanner({ activatedTiers }: RGDPBannerProps) {
 
   const clear = () => {
     localStorage.clear();
+    location.reload();
   };
 
   return (

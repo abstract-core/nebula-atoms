@@ -10,6 +10,12 @@ export default function VideoBlock({
 }: {
   block: VideoBlockObjectResponse;
 }) {
+  
+  const clear = () => {
+    localStorage.clear();
+    location.reload();
+  };
+
   return (
     <>
       {localStorage.getItem("gdpr-Youtube") === "true" && !null ? (
@@ -39,9 +45,7 @@ export default function VideoBlock({
         <div className="card border m-5 p-5">
           <div className="card-body w-100">
             <p className="card-text">Veuillez accepter les cookies.</p>
-            <a href="#" className="card-link">
-              Another link
-            </a>
+            <button onClick={clear}>RESET LOCAL STORAGE</button>
           </div>
         </div>
       )}

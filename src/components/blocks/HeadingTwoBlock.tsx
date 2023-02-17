@@ -10,8 +10,21 @@ export default function HeadingTwoBlock({
 }: {
   block: Heading2BlockObjectResponse;
 }) {
+  const headingIds = block.heading_2.rich_text.map((text) => {
+    return text.plain_text;
+  });
+
+  const convertedIds = headingIds
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .split(" ")
+    .join("-")
+    .replace(/[^a-z-]/g, "")
+    .replace(/^\-?|\-?$/g, "") 
+
   return (
-    <h2 className="mt-5 mb-4">
+    <h2 id={convertedIds} className="mt-5 mb-4">
       <RichTextRenderer
         richTexts={block.heading_2.rich_text as TextRichTextItemResponse[]}
       />

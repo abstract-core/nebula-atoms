@@ -20,6 +20,16 @@ export type DefaultTemplateContext = GlobalContext & {
   blocks: ExtendedBlockObjectResponse[];
 };
 
+const convertedIds = (title: string) =>
+  title
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .split(" ")
+    .join("-")
+    .replace(/[^a-z-]/g, "")
+    .replace(/^\-?|\-?$/g, "");
+
 const DefaultTemplate = ({
   pageContext: {
     title,
@@ -45,7 +55,7 @@ const DefaultTemplate = ({
     >
       <>
         <div id="page-header" className="mb-5">
-          <h1>{title}</h1>
+          <h1 id={convertedIds(title)}>{title}</h1>
         </div>
         {createdAt && (
           <p>

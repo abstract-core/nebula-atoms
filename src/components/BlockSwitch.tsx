@@ -32,12 +32,9 @@ export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
           />
         );
       }
-    /** @deprecated Should only occur as `'resized_image'` */
     case "image":
-      console.log("image");
       return <ImageBlock block={block} />;
     case "resized_image":
-      console.log("resized_image");
       return <ResizedImage block={block} />;
     case "video":
       return <VideoBlock block={block} />;

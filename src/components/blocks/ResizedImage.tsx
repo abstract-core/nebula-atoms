@@ -14,8 +14,8 @@ export default function ResizedImage({
     <figure className="figure">
       {block.minUrl && block.medUrl ? (
         <img
-          srcSet={`${block.minUrl} 360w, ${block.medUrl} 800w`}
-          sizes="(max-width: 800px) 360px, 800px"
+          src={block.standardUrl}
+          srcSet={`${block.medUrl} 800w, ${block.minUrl} 360w`}
           className={className}
           onClick={() => setModal(true)}
         />

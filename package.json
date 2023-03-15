@@ -1,6 +1,6 @@
 {
   "name": "statikon",
-  "version": "0.1.12",
+  "version": "0.1.14",
   "description": "Gatsby x Notion's shared logic and components.",
   "main": "./build",
   "types": "./build/index.d.ts",

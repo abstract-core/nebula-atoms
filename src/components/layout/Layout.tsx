@@ -31,10 +31,7 @@ function Layout({ head, bg, text, navbar, children, footer }: LayoutProps) {
   return (
     <div className={`bg-${bg} text-${text}`}>
       <Helmet>
-        <title>
-          {head?.title ? `${head.title} - ` : ""}
-          {process.env.WEBSITE_TITLE}
-        </title>
+        <title>{head?.title}</title>
         {head?.description && (
           <meta name="description" content={head.description} />
         )}

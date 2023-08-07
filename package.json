@@ -1,7 +1,7 @@
 {
-  "name": "statikon",
-  "version": "0.1.14",
-  "description": "Gatsby x Notion's shared logic and components.",
+  "name": "nebula-atoms",
+  "version": "1.0.0",
+  "description": "Gatsby x Notion's templates.",
   "main": "./build",
   "types": "./build/index.d.ts",
   "scripts": {

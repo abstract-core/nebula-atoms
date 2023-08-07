@@ -14,9 +14,17 @@ export default function ImageBlock({
   return (
     <figure className="figure">
       {block.image.type === "external" ? (
-        <img src={block.image.external.url} className={className} />
+        <img
+          src={block.image.external.url}
+          alt={block.image.caption?.[0]?.plain_text || ""}
+          className={className}
+        />
       ) : (
-        <img src={block.image.file.url} className={className} />
+        <img
+          src={block.image.file.url}
+          alt={block.image.caption?.[0]?.plain_text || ""}
+          className={className}
+        />
       )}
       {block.image.caption && (
         <figcaption className="figure-caption small">

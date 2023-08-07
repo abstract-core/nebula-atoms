@@ -1,5 +1,5 @@
 import { TextRichTextItemResponse } from "@notionhq/client/build/src/api-endpoints";
-import React from "react";
+import React, { ReactElement } from "react";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 import BulletedListBlock from "./blocks/BulletedListBlock";
@@ -14,15 +14,21 @@ import ResizedImage from "./blocks/ResizedImage";
 import VideoBlock from "./blocks/VideoBlock";
 import SpecialBlockSwitch from "./SpecialBlockSwitch";
 
-type BlockSwitchProps = GlobalContext & { block: ExtendedBlockObjectResponse };
+type BlockSwitchProps = GlobalContext & {
+  block: ExtendedBlockObjectResponse;
+} & { staticBlocks?: { [key: string]: ReactElement } };
 
-export default function BlockSwitch({ block, contents }: BlockSwitchProps) {
+export default function BlockSwitch({
+  block,
+  contents,
+  staticBlocks = {},
+}: BlockSwitchProps) {
   switch (block.type) {
     case "paragraph":
-      if (
-        block.paragraph.rich_text[0] &&
-        block.paragraph.rich_text[0].plain_text.startsWith("{")
-      ) {
+      if (block.paragraph.rich_text[0]?.plain_text.startsWith("[")) {
+        const key = block.paragraph.rich_text[0].plain_text.slice(1, -1);
+        return staticBlocks[key] || <></>;
+      } else if (block.paragraph.rich_text[0]?.plain_text.startsWith("{")) {
         return <SpecialBlockSwitch block={block} contents={contents} />;
       } else {
         return (

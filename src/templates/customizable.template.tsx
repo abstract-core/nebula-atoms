@@ -11,7 +11,7 @@ export type CustomizableTemplateContext = Omit<
 };
 
 const CustomizableTemplate = ({
-  title,
+  pageTitle,
   blocks,
   head,
   bg,
@@ -22,16 +22,10 @@ const CustomizableTemplate = ({
   staticBlocks = {},
 }: CustomizableTemplateContext) => {
   return (
-    <Layout
-      head={{ title, ...(head || {}) }}
-      bg={bg}
-      text={text}
-      navbar={navbar}
-      footer={footer}
-    >
+    <Layout head={head} bg={bg} text={text} navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
-          <h1>{title}</h1>
+          <h1>{pageTitle}</h1>
         </div>
         {blocks.map((block) => (
           <BlockSwitch

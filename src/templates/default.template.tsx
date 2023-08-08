@@ -8,8 +8,8 @@ import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectRespons
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
-  title: string;
-  head?: Omit<LayoutHead, "title">;
+  pageTitle: string;
+  head: LayoutHead;
   bg: string;
   text: string;
   navbar: NavbarProps;
@@ -22,7 +22,7 @@ export type DefaultTemplateContext = GlobalContext & {
 
 const DefaultTemplate = ({
   pageContext: {
-    title,
+    pageTitle,
     createdAt,
     publishedAt,
     editedAt,
@@ -36,16 +36,10 @@ const DefaultTemplate = ({
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout
-      head={{ title, ...(head || {}) }}
-      bg={bg}
-      text={text}
-      navbar={navbar}
-      footer={footer}
-    >
+    <Layout head={head} bg={bg} text={text} navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
-          <h1>{title}</h1>
+          <h1>{pageTitle}</h1>
         </div>
         {createdAt && (
           <p>

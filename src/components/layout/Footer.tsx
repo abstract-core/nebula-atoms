@@ -14,7 +14,7 @@ export type FooterProps = {
 function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
   return (
     <footer className={`bg-${bg} text-${text}`}>
-      <div className="d-flex justify-content-center flex-md-row flex-column text-white">
+      <div className="d-flex justify-content-center flex-md-row flex-column">
         <ul className="list-unstyled p-5 col-sm-12 col-md-6 col-xl-4">
           {links.map(({ title, path }, index) => {
             return (
@@ -43,11 +43,11 @@ function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
             </li>
           )}
           <li className="py-2">
-            Site développé par Romaric Ruga{" "}
+            Site développé par{" "}
             <a href="https://rimarok.com/" className={`text-${a}`}>
-              (freelance ingénierie web et éco-conception)
-            </a>
-            .
+              RIMAROK.com
+            </a>{" "}
+            (freelance ingénierie web et éco-conception).
           </li>
         </ul>
       </div>

@@ -4,16 +4,21 @@ import { LinkContent } from "../../types/LinkContent";
 
 export type FooterProps = {
   links: LinkContent[];
-  bg: string;
-  text: string;
-  a: string;
+  /** @deprecated Use Sass variables */
+  bg?: string;
+  /** @deprecated Use Sass variables */
+  text?: string;
+  /** @deprecated Use Sass variables */
+  a?: string;
   contact?: true;
   mentions?: true;
 };
 
 function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
   return (
-    <footer className={`bg-${bg} text-${text}`}>
+    <footer
+      className={`${bg ? `bg-${bg} ` : ""}${text ? `text-${text} ` : ""}`}
+    >
       <div className="d-flex justify-content-center flex-md-row flex-column">
         <ul className="list-unstyled p-5 col-sm-12 col-md-6 col-xl-4">
           {links.map(({ title, path }, index) => {
@@ -30,21 +35,27 @@ function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
           <li className="h3 py-2">{process.env.WEBSITE_TITLE}</li>
           {contact && (
             <li>
-              <a href="/contact" className={`text-${a}`}>
+              <a href="/contact" className={`${a ? `text-${a} ` : ""}`}>
                 Contact
               </a>
             </li>
           )}
           {mentions && (
             <li>
-              <a href="/mentions-legales" className={`text-${a}`}>
+              <a
+                href="/mentions-legales"
+                className={`${a ? `text-${a} ` : ""}`}
+              >
                 Mentions légales
               </a>
             </li>
           )}
           <li className="py-2">
             Site développé par{" "}
-            <a href="https://rimarok.com/" className={`text-${a}`}>
+            <a
+              href="https://rimarok.com/"
+              className={`${a ? `text-${a} ` : ""}`}
+            >
               RIMAROK.com
             </a>{" "}
             (freelance ingénierie web et éco-conception).

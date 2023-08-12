@@ -10,8 +10,10 @@ import { GlobalContext } from "../types/GlobalContext";
 export type DefaultTemplateContext = GlobalContext & {
   pageTitle: string;
   head: LayoutHead;
-  bg: string;
-  text: string;
+  /** @deprecated Use Sass variables */
+  bg?: string;
+  /** @deprecated Use Sass variables */
+  text?: string;
   navbar: NavbarProps;
   footer: FooterProps;
   createdAt?: Date;
@@ -36,7 +38,7 @@ const DefaultTemplate = ({
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout head={head} bg={bg} text={text} navbar={navbar} footer={footer}>
+    <Layout head={head} navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
           <h1>{pageTitle}</h1>

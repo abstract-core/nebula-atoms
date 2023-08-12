@@ -16,8 +16,10 @@ export type LayoutHead = {
 
 type LayoutProps = {
   head: LayoutHead;
-  bg: string;
-  text: string;
+  /** @deprecated Use Sass variables */
+  bg?: string;
+  /** @deprecated Use Sass variables */
+  text?: string;
   navbar: NavbarProps;
   children: ReactElement;
   footer: FooterProps;
@@ -25,7 +27,7 @@ type LayoutProps = {
 
 function Layout({ head, bg, text, navbar, children, footer }: LayoutProps) {
   return (
-    <div className={`bg-${bg} text-${text}`}>
+    <div className={`${bg ? `bg-${bg} ` : ""}${text ? `text-${text} ` : ""}`}>
       <Helmet>
         <title>{head.title}</title>
         {head?.favicon && (

@@ -5,8 +5,10 @@ import { LinkContent } from "../../types/LinkContent";
 export type NavbarProps = {
   title: string;
   links: LinkContent[];
-  bg: string;
-  text: string;
+  /** @deprecated Use Sass variables */
+  bg?: string;
+  /** @deprecated Use Sass variables */
+  text?: string;
   expand?: "sm" | "md" | "lg" | "xl" | "xxl";
 };
 
@@ -15,11 +17,11 @@ function Navbar({ title, links, bg, text, expand }: NavbarProps) {
     <nav
       className={`navbar${
         expand ? ` navbar-expand-${expand}` : ""
-      } position-fixed w-100 bg-${bg}`}
+      } position-fixed w-100 ${bg ? `bg-${bg} ` : ""}`}
       style={{ zIndex: 1 }}
     >
-      <div className="container-fluid d-flex align-items-center px-3">
-        <Link className={`navbar-brand text-${text}`} to="/">
+      <div className="container-fluid d-flex align-items-center px-3 col-sm-12 col-md-8 col-xl-6">
+        <Link className="navbar-brand" to="/">
           {title}
         </Link>
         {expand && (

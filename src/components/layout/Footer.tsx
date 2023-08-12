@@ -56,9 +56,9 @@ function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
               href="https://rimarok.com/"
               className={`${a ? `text-${a} ` : ""}`}
             >
-              RIMAROK.com
-            </a>{" "}
-            (freelance ingénierie web et éco-conception).
+              ✨ RIMAROK.com 🌻🤖
+            </a>
+            , développement web et éco-conception
           </li>
         </ul>
       </div>

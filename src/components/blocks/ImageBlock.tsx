@@ -13,19 +13,16 @@ export default function ImageBlock({
   const className = "figure-img mt-5 mb-4";
   return (
     <figure className="figure">
-      {block.image.type === "external" ? (
-        <img
-          src={block.image.external.url}
-          alt={block.image.caption?.[0]?.plain_text || ""}
-          className={className}
-        />
-      ) : (
-        <img
-          src={block.image.file.url}
-          alt={block.image.caption?.[0]?.plain_text || ""}
-          className={className}
-        />
-      )}
+      <img
+        src={
+          block.image.type === "external"
+            ? block.image.external.url
+            : block.image.file.url
+        }
+        alt={block.image.caption?.[0]?.plain_text || ""}
+        className={className}
+        loading="lazy"
+      />
       {block.image.caption && (
         <figcaption className="figure-caption small">
           <RichTextRenderer

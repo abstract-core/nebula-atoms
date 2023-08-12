@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import * as React from "react";
 import { LinkContent } from "../../types/LinkContent";
+import NavbarNavsList from "./NavbarNavsList";
 
 export type NavbarProps = {
   title: string;
@@ -37,26 +38,13 @@ function Navbar({ title, links, bg, text, expand }: NavbarProps) {
             <span className="navbar-toggler-icon"></span>
           </button>
         )}
-        <div
-          className={`collapse${expand ? " navbar-collapse" : ""}`}
-          id="navbarSupportedContent"
-        >
-          <ul className="navbar-nav me-auto mb-lg-0 w-100 justify-content-end">
-            {links.map(({ title, path }, index) => {
-              return (
-                <li key={index} className="nav-item">
-                  <Link
-                    key={index}
-                    className={`nav-link text-${text}`}
-                    to={path}
-                  >
-                    {title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        {expand ? (
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <NavbarNavsList links={links} text={text} />
+          </div>
+        ) : (
+          <NavbarNavsList links={links} text={text} />
+        )}
       </div>
     </nav>
   );

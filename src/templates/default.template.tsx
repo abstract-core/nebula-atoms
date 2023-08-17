@@ -1,6 +1,7 @@
-import { HeadProps, PageProps } from "gatsby";
+import { PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
+import { HeadProps } from "../components/Head";
 import { FooterProps } from "../components/layout/Footer";
 import Layout from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";

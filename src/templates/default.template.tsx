@@ -1,15 +1,15 @@
-import { PageProps } from "gatsby";
+import { HeadProps, PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
 import { FooterProps } from "../components/layout/Footer";
-import Layout, { LayoutHead } from "../components/layout/Layout";
+import Layout from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";
 import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
   pageTitle: string;
-  head: LayoutHead;
+  head: HeadProps;
   /** @deprecated Use Sass variables */
   bg?: string;
   /** @deprecated Use Sass variables */
@@ -29,7 +29,6 @@ const DefaultTemplate = ({
     publishedAt,
     editedAt,
     blocks,
-    head,
     bg,
     text,
     navbar,
@@ -38,7 +37,7 @@ const DefaultTemplate = ({
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   return (
-    <Layout head={head} navbar={navbar} footer={footer}>
+    <Layout navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
           <h1>{pageTitle}</h1>

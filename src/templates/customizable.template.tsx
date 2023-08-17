@@ -13,7 +13,6 @@ export type CustomizableTemplateContext = Omit<
 const CustomizableTemplate = ({
   pageTitle,
   blocks,
-  head,
   bg,
   text,
   navbar,
@@ -22,7 +21,7 @@ const CustomizableTemplate = ({
   staticBlocks = {},
 }: CustomizableTemplateContext) => {
   return (
-    <Layout head={head} bg={bg} text={text} navbar={navbar} footer={footer}>
+    <Layout bg={bg} text={text} navbar={navbar} footer={footer}>
       <>
         <div id="page-header" className="mb-5">
           <h1>{pageTitle}</h1>

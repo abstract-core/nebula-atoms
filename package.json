@@ -1,6 +1,6 @@
 {
   "name": "nebula-atoms",
-  "version": "1.1.3",
+  "version": "1.2.0",
   "description": "Gatsby x Notion's templates.",
   "main": "./build",
   "types": "./build/index.d.ts",
@@ -26,15 +26,13 @@
   "dependencies": {
     "@notionhq/client": "^2.2.0",
     "bootstrap": "^5.2.1",
-    "gatsby": "^5.5.0",
+    "gatsby": "^5.11.0",
     "react": "^18.1.0",
-    "react-helmet": "^6.1.0",
     "sass": "^1.54.9"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.20",
-    "@types/react-helmet": "^6.1.5",
     "typescript": "^4.8.3"
   }
 }

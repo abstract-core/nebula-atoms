@@ -9,6 +9,7 @@ import PureBlocksRenderer from "./src/components/PureBlocksRenderer";
 import { MultisizedImage } from "./src/types/MultisizedImage";
 import CustomizableTemplate from "./src/templates/customizable.template";
 import type { CustomizableTemplateContext } from "./src/templates/customizable.template";
+import Head from "./src/components/Head";
 
 export {
   DefaultTemplate,
@@ -18,6 +19,7 @@ export {
   ExtendedBlockObjectResponse,
   MultisizedImage,
   ResizedImageBlockObject,
+  Head,
   RichTextRenderer,
   PureBlocksRenderer,
 };

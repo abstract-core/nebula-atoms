@@ -10,6 +10,8 @@ import { MultisizedImage } from "./src/types/MultisizedImage";
 import CustomizableTemplate from "./src/templates/customizable.template";
 import type { CustomizableTemplateContext } from "./src/templates/customizable.template";
 import Head from "./src/components/Head";
+import type { Link } from "./src/types/Link";
+import LinksList from "./src/components/LinksList";
 
 export {
   DefaultTemplate,
@@ -22,4 +24,6 @@ export {
   Head,
   RichTextRenderer,
   PureBlocksRenderer,
+  Link,
+  LinksList,
 };

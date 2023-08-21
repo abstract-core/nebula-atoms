@@ -43,21 +43,21 @@ const DefaultTemplate = ({
         <div id="page-header" className="mb-5">
           <h1>{pageTitle}</h1>
         </div>
-        {createdAt && (
-          <p>
-            <>Créé le {new Date(createdAt).toLocaleDateString("fr")}</>
-          </p>
-        )}
-        {publishedAt && (
-          <p>
-            <>Publié le {new Date(publishedAt).toLocaleDateString("fr")}</>
-          </p>
-        )}
-        {editedAt && (
-          <p>
-            <>Édité le {new Date(editedAt).toLocaleDateString("fr")}</>
-          </p>
-        )}
+        <div id="page-dates">
+          {createdAt && (
+            <div>Créé le {new Date(createdAt).toLocaleDateString("fr")}</div>
+          )}
+          {publishedAt && (
+            <div>
+              Publié le {new Date(publishedAt).toLocaleDateString("fr")}
+            </div>
+          )}
+          {editedAt && (
+            <div>
+              Mis à jour le {new Date(editedAt).toLocaleDateString("fr")}
+            </div>
+          )}
+        </div>
         {blocks.map((block) => (
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}

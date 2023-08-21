@@ -12,12 +12,16 @@ import type { CustomizableTemplateContext } from "./src/templates/customizable.t
 import Head from "./src/components/Head";
 import type { Link } from "./src/types/Link";
 import LinksList from "./src/components/LinksList";
+import EmptyTemplate from "./src/templates/empty.template";
+import type { EmptyTemplateContext } from "./src/templates/empty.template";
 
 export {
   DefaultTemplate,
   DefaultTemplateContext,
   CustomizableTemplate,
   CustomizableTemplateContext,
+  EmptyTemplate,
+  EmptyTemplateContext,
   ExtendedBlockObjectResponse,
   MultisizedImage,
   ResizedImageBlockObject,

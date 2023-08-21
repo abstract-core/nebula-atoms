@@ -1,3 +1,4 @@
+import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { PageProps } from "gatsby";
 import React from "react";
 import BlockSwitch from "../components/BlockSwitch";
@@ -5,7 +6,7 @@ import { HeadProps } from "../components/Head";
 import { FooterProps } from "../components/layout/Footer";
 import Layout from "../components/layout/Layout";
 import { NavbarProps } from "../components/layout/Navbar";
-import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectResponse";
+import { buildExtendedBlocks } from "../helpers/buildExtendedBlocks";
 import { GlobalContext } from "../types/GlobalContext";
 
 export type DefaultTemplateContext = GlobalContext & {
@@ -20,7 +21,7 @@ export type DefaultTemplateContext = GlobalContext & {
   createdAt?: Date;
   publishedAt?: Date;
   editedAt?: Date;
-  blocks: ExtendedBlockObjectResponse[];
+  blocks: BlockObjectResponse[];
 };
 
 const DefaultTemplate = ({
@@ -37,6 +38,7 @@ const DefaultTemplate = ({
     footer,
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
+  const _blocks = buildExtendedBlocks(blocks);
   return (
     <Layout navbar={navbar} footer={footer}>
       <>
@@ -58,7 +60,7 @@ const DefaultTemplate = ({
             </div>
           )}
         </div>
-        {blocks.map((block) => (
+        {_blocks.map((block) => (
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}
         {/** @todo Add GDPR panel */}

@@ -15,7 +15,7 @@ type LayoutProps = {
 function Layout({ bg, text, navbar, children, footer }: LayoutProps) {
   return (
     <div className={`${bg ? `bg-${bg} ` : ""}${text ? `text-${text} ` : ""}`}>
-      <Navbar {...navbar} title={navbar.title} />
+      <Navbar {...navbar} />
       <div id="main" className="container pb-5">
         {children}
       </div>

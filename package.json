@@ -1,6 +1,6 @@
 {
   "name": "nebula-atoms",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "Gatsby x Notion's templates.",
   "main": "./build",
   "types": "./build/index.d.ts",

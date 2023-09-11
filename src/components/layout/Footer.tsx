@@ -17,7 +17,9 @@ export type FooterProps = {
 function Footer({ links, bg, text, a, contact, mentions }: FooterProps) {
   return (
     <footer
-      className={`${bg ? `bg-${bg} ` : ""}${text ? `text-${text} ` : ""}`}
+      className={
+        `${bg ? `bg-${bg} ` : ""}${text ? ` text-${text} ` : ""}` || undefined
+      }
     >
       <div className="d-flex justify-content-center flex-md-row flex-column">
         <ul className="list-unstyled p-5 col-sm-12 col-md-6 col-xl-4">

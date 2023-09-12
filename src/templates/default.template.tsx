@@ -1,6 +1,10 @@
-import { BlockObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  BlockObjectResponse,
+  ImageBlockObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
 import { PageProps } from "gatsby";
 import React from "react";
+import ImageBlock from "../components/blocks/ImageBlock";
 import BlockSwitch from "../components/BlockSwitch";
 import { HeadProps } from "../components/Head";
 import { FooterProps } from "../components/layout/Footer";
@@ -39,9 +43,18 @@ const DefaultTemplate = ({
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   const _blocks = buildExtendedBlocks(blocks);
+  let thumbnail: ImageBlockObjectResponse | undefined;
+  if (_blocks[0].type === "image") {
+    thumbnail = _blocks.shift() as ImageBlockObjectResponse;
+  }
   return (
     <Layout navbar={navbar} footer={footer}>
       <>
+        {thumbnail && (
+          <div id="thumbnail">
+            <ImageBlock block={thumbnail} />
+          </div>
+        )}
         <div id="page-header" className="mb-5">
           <h1>{pageTitle}</h1>
         </div>

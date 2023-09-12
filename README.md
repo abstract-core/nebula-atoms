@@ -6,15 +6,30 @@
 
 Nebula Atoms provides a set of templates and components ready to integrate and display Notion content.
 
-## Projects use
+## Table of contents
 
-Install package from npm registry
+- [Nebula atoms](#nebula-atoms)
+  - [Table of contents](#table-of-contents)
+  - [Projects' usage](#projects-usage)
+    - [Templates](#templates)
+      - [Setup](#setup)
+      - [Different templates](#different-templates)
+  - [Notion usage](#notion-usage)
+    - [Extended blocks](#extended-blocks)
+    - [Static blocks API](#static-blocks-api)
+  - [Extend the package](#extend-the-package)
+    - [Local development](#local-development)
+  - [Build \& publish](#build--publish)
+
+## Projects' usage
+
+First, install package inside a site project from npm registry :
 
 ```sh
 npm i nebula-atoms
 ```
 
-### Using templates
+### Templates
 
 #### Setup
 
@@ -38,6 +53,12 @@ export default DefaultTemplate;
 - `default.template` is a basic template which must be provisioned with metadata and blocks content,
 - `customizable.template` extends `default.template` by allowing a set of custom blocks to be added,
 - `empty.template` sets metadata the same way than other templates but its content must be filled.
+
+## Notion usage
+
+### Extended blocks
+
+### Static blocks API
 
 ## Extend the package
 

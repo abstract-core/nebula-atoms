@@ -4,6 +4,7 @@ import { ExtendedBlockObjectResponse } from "../types/ExtendedBlockObjectRespons
 import { GlobalContext } from "../types/GlobalContext";
 import BulletedListBlock from "./blocks/BulletedListBlock";
 import CalloutBlock from "./blocks/CalloutBlock";
+import CallsToActionBlock from "./blocks/CallsToActionBlock";
 import HeadingThreeBlock from "./blocks/HeadingThreeBlock";
 import HeadingTwoBlock from "./blocks/HeadingTwoBlock";
 import ImageBlock from "./blocks/ImageBlock";
@@ -56,6 +57,8 @@ export default function BlockSwitch({
       return <BulletedListBlock block={block} />;
     case "numbered_list":
       return <NumberedListBlock block={block} />;
+    case "calls-to-action":
+      return <CallsToActionBlock block={block} />;
     default:
       return <></>;
   }

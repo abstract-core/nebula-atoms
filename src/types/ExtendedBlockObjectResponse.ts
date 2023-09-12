@@ -17,6 +17,17 @@ export type NumberedListBlockObject = {
   items: NumberedListItemBlockObjectResponse[];
 };
 
+export type CallToAction = {
+  href: string;
+  plain_text: string;
+}
+
+export type CallsToActionBlockObject = {
+  id: string;
+  type: "calls-to-action";
+  items: CallToAction[];
+};
+
 export type ResizedImageBlockObject = {
   id: string;
   type: "resized_image";
@@ -33,4 +44,5 @@ export type ExtendedBlockObjectResponse =
   | BlockObjectResponse
   | ResizedImageBlockObject
   | BulletedListBlockObject
-  | NumberedListBlockObject;
+  | NumberedListBlockObject
+  | CallsToActionBlockObject;

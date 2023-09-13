@@ -2,7 +2,7 @@ import {
   BlockObjectResponse,
   ImageBlockObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
-import { PageProps } from "gatsby";
+import { PageProps, Script } from "gatsby";
 import React from "react";
 import ImageBlock from "../components/blocks/ImageBlock";
 import BlockSwitch from "../components/BlockSwitch";
@@ -26,6 +26,7 @@ export type DefaultTemplateContext = GlobalContext & {
   publishedAt?: Date;
   editedAt?: Date;
   blocks: BlockObjectResponse[];
+  scripts?: string[];
 };
 
 const DefaultTemplate = ({
@@ -40,6 +41,7 @@ const DefaultTemplate = ({
     navbar,
     contents,
     footer,
+    scripts,
   },
 }: PageProps<undefined, DefaultTemplateContext>) => {
   const _blocks = buildExtendedBlocks(blocks);
@@ -77,6 +79,9 @@ const DefaultTemplate = ({
           <BlockSwitch key={block.id} block={block} contents={contents} />
         ))}
         {/** @todo Add GDPR panel */}
+        {scripts?.map((script) => (
+          <Script key={script} src={script} />
+        ))}
       </>
     </Layout>
   );

@@ -32,12 +32,19 @@ export default function SpecialBlockSwitch({
     } else if (tag.startsWith("contact")) {
       const contactParams = tag.split(" ");
       return (
-        <button
-          type="button"
-          className={`btn btn-primary contact-${contactParams[1]} mb-4`}
-        >
-          Afficher
-        </button>
+        <div className="calls-to-action">
+          <button
+            type="button"
+            className={`btn btn-primary contact-${contactParams[1]} mb-4`}
+          >
+            Afficher
+            {contactParams[1] === "mail"
+              ? " l'adresse mail"
+              : contactParams[1] === "phone"
+              ? " le numéro de téléphone"
+              : ""}
+          </button>
+        </div>
       );
     }
     return (

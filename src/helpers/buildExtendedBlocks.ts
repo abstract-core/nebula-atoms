@@ -14,30 +14,26 @@ export function buildExtendedBlocks(blocks: BlockObjectResponse[]) {
       // Group bulleted lists' items in a single block
       block.type === "bulleted_list_item"
     ) {
-      if (prevBlock?.type === "bulleted_list_item") {
+      if (prevBlock?.type === "bulleted_list") {
+        prevBlock.items.push(block);
+        _blocks.push(prevBlock);
+      } else {
         _blocks.push({
           id: Date.now().toString(),
           type: "bulleted_list",
-          items: [prevBlock, block],
+          items: [block],
         } as BulletedListBlockObject);
-      } else {
-        if (prevBlock?.type === "bulleted_list") {
-          prevBlock.items.push(block);
-        }
-        if (prevBlock) _blocks.push(prevBlock);
       }
     } else if (block.type === "numbered_list_item") {
-      /** Group numbered lists' items in a single block */
-      if (prevBlock?.type === "numbered_list_item") {
+      if (prevBlock?.type === "numbered_list") {
+        prevBlock.items.push(block);
+        _blocks.push(prevBlock);
+      } else {
         _blocks.push({
           id: Date.now().toString(),
           type: "numbered_list",
           items: [prevBlock, block],
         } as NumberedListBlockObject);
-      } else if (prevBlock?.type === "numbered_list") {
-        prevBlock.items.push(block);
-        _blocks.push(prevBlock);
-        /** @todo following images creates a carousel */
       }
     } else if (block.type === "paragraph") {
       if (

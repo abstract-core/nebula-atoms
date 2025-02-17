@@ -1,0 +1,22 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
+#navbar {
+  padding: 4px 16px;
+  > a {
+    font-size: 2rem;
+  }
+}
+
+#container {
+  width: 640px;
+  padding-top: 15vh;
+  margin: auto;
+  min-height: 100vh;
+}
+
+footer {
+  padding: 8px;
+}

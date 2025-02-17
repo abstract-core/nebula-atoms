@@ -1,5 +1,1 @@
 node_modules
-.gitignore
-src/*
-!src/client
-!src/styles

@@ -1,38 +1,25 @@
 {
   "name": "nebula-atoms",
-  "version": "1.3.1",
-  "description": "Gatsby x Notion's templates.",
-  "main": "./build",
-  "types": "./build/index.d.ts",
+  "version": "2.0.0",
   "scripts": {
-    "dev": "npx tsc --build --watch",
-    "build": "npx tsc --build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx vitest"
   },
-  "keywords": [
-    "jamstack",
-    "react",
-    "gatsby",
-    "typescript",
-    "notion",
-    "notion",
-    "api",
-    "static",
-    "website",
-    "generator"
-  ],
-  "author": "RIMAROK.com",
+  "exports": {
+    "./Layout": "./layouts/Layout.astro",
+    "./PageLayout": "./layouts/PageLayout.astro",
+    "./ArticleLayout": "./layouts/ArticleLayout.astro",
+    "./stringToUrl": "./helpers/stringToUrl.ts",
+    "./extendHtml": "./helpers/extendHtml/extendHtml.ts",
+    "./dateToString": "./helpers/dateToString.ts",
+    "./core": {
+      "sass": "./styles/_core.scss"
+    }
+  },
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@notionhq/client": "^2.2.0",
-    "bootstrap": "^5.2.1",
-    "gatsby": "^5.11.0",
-    "react": "^18.1.0",
-    "sass": "^1.54.9"
-  },
+  "description": "Contains re-usable Astro layouts, components & components' helpers (extendHtml(), parsers ...) for Nebula. Nebula is an integration of Notion in Astro static websites, provided with a minimalist, user-friendly, dashboard.",
   "devDependencies": {
-    "@types/node": "^17.0.45",
-    "@types/react": "^18.0.20",
-    "typescript": "^4.8.3"
+    "vitest": "^3.0.5"
   }
 }

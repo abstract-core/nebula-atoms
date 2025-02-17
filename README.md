@@ -10,18 +10,20 @@ Nebula Atoms provides a set of templates and components ready to integrate and d
 
 - [Nebula atoms](#nebula-atoms)
   - [Table of contents](#table-of-contents)
-  - [Projects' usage](#projects-usage)
+  - [Quick start](#quick-start)
+  - [Features](#features)
     - [Templates](#templates)
-      - [Setup](#setup)
-      - [Different templates](#different-templates)
-  - [Notion usage](#notion-usage)
-    - [Extended blocks](#extended-blocks)
-    - [Static blocks API](#static-blocks-api)
+      - [`Layout`](#layout)
+    - [Helpers](#helpers)
+      - [`extendHtml(html, customElements?: [key: string, html: string][])`](#extendhtmlhtml-customelements-key-string-html-string)
+      - [`stringToUrl(string): string`](#stringtourlstring-string)
+      - [`dateToString(date: Date): 'dd-mm-yyyy'`](#datetostringdate-date-dd-mm-yyyy)
+    - [Core SCSS](#core-scss)
   - [Extend the package](#extend-the-package)
     - [Local development](#local-development)
   - [Build \& publish](#build--publish)
 
-## Projects' usage
+## Quick start
 
 First, install package inside a site project from npm registry :
 
@@ -29,36 +31,36 @@ First, install package inside a site project from npm registry :
 npm i nebula-atoms
 ```
 
+## Features
+
 ### Templates
 
-#### Setup
+#### `Layout`
 
-Templates must be imported in project and re-exported in order to customize them with specific contents and to provide custom SCSS.
+Generic layout with `<slot>` for `<body>` content & `<slot name="navbar">`.
 
-Example :
+### Helpers
 
-```tsx
-import "../styles/global.scss";
-import { DefaultTemplate, Head } from "nebula-atoms";
+#### `extendHtml(html, customElements?: [key: string, html: string][])`
 
-export { Head };
+Add support for :
 
-export default DefaultTemplate;
-```
+- **Thumbnail :** if image is page's first block, put it before h1,
+- **Button-like links :** a block containing only a link, get the "btn" class,
+- **Button-like links group :** multiple button-like links (block) are grouped in a single "btn-list" div
+- **Custom elements :** replace block containg only `{key}` text with given html string.
 
-#### Different templates
+#### `stringToUrl(string): string`
 
-`nebula-atoms` offers three different templates :
+Transform a string to an url-ready one.
 
-- `default.template` is a basic template which must be provisioned with metadata and blocks content,
-- `customizable.template` extends `default.template` by allowing a set of custom blocks to be added,
-- `empty.template` sets metadata the same way than other templates but its content must be filled.
+#### `dateToString(date: Date): 'dd-mm-yyyy'`
 
-## Notion usage
+### Core SCSS
 
-### Extended blocks
+Some rules that can be applied on every sites.
 
-### Static blocks API
+Use it like that : `@use "../node_modules/nebula-atoms-astro/styles/core";`
 
 ## Extend the package
 

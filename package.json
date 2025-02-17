@@ -1,0 +1,25 @@
+{
+  "name": "nebula-atoms",
+  "version": "2.0.0",
+  "scripts": {
+    "test": "npx vitest"
+  },
+  "exports": {
+    "./Layout": "./layouts/Layout.astro",
+    "./PageLayout": "./layouts/PageLayout.astro",
+    "./ArticleLayout": "./layouts/ArticleLayout.astro",
+    "./stringToUrl": "./helpers/stringToUrl.ts",
+    "./extendHtml": "./helpers/extendHtml/extendHtml.ts",
+    "./dateToString": "./helpers/dateToString.ts",
+    "./core": {
+      "sass": "./styles/_core.scss"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Contains re-usable Astro layouts, components & components' helpers (extendHtml(), parsers ...) for Nebula. Nebula is an integration of Notion in Astro static websites, provided with a minimalist, user-friendly, dashboard.",
+  "devDependencies": {
+    "vitest": "^3.0.5"
+  }
+}

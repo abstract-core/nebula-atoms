@@ -1,22 +1,47 @@
 ---
-const { title } = Astro.props;
+interface Props {
+  pageTitle?: string;
+  siteTitle?: string;
+  since?: string;
+}
+
+const { pageTitle, siteTitle, since } = Astro.props;
+const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>{pageTitle}{pageTitle && siteTitle && " | "}{siteTitle}</title>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <slot name="navbar" />
     <slot />
     <footer>
-      Site réalisé par Romaric Ruga (<a href="rimarok.com">rimarok.com</a>)
+      <div>
+        <slot name="footer" />
+      </div>
+      <div>
+        <p id="footer-site-title">{siteTitle}</p>
+        <p id="footer-since">
+          {
+            since
+              ? since.endsWith(String(currentYear))
+                ? since
+                : `${since} - ${currentYear}`
+              : currentYear
+          }
+        </p>
+        <p id="footer-developer">
+          Site développé par <a href="https://rimarok.com">rimarok.com</a>,
+          éco-conception web
+        </p>
+      </div>
     </footer>
   </body>
 </html>

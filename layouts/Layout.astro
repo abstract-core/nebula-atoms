@@ -3,9 +3,13 @@ interface Props {
   pageTitle?: string;
   siteTitle?: string;
   since?: string;
+  footerIcon?: {
+    alt: string;
+    src: string;
+  };
 }
 
-const { pageTitle, siteTitle, since } = Astro.props;
+const { pageTitle, siteTitle, since, footerIcon } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -27,6 +31,7 @@ const currentYear = new Date().getFullYear();
         <slot name="footer" />
       </div>
       <div>
+        {footerIcon ? <img id="footer-icon" {...footerIcon} /> : ""}
         <p id="footer-site-title">{siteTitle}</p>
         <p id="footer-since">
           {

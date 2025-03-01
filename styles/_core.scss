@@ -1,23 +1,29 @@
 $container-width: 640px !default;
 
+@use "./_components/navbar" with (
+  $container-width: $container-width
+);
 @use "./_components/container" with (
   $container-width: $container-width
 );
-@use "./_components/footer";
+@use "./_components/footer" with (
+  $container-width: $container-width
+);
 
 body {
   min-height: 100vh;
   margin: 0;
 }
 
-@media (max-width: 640px) {
+.btn-list {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: $container-width) {
   .btn-list {
     display: flex;
     flex-direction: column;
     align-items: start;
-  }
-  footer {
-    flex-direction: column;
-    align-items: left;
   }
 }

@@ -22,6 +22,7 @@ const currentYear = new Date().getFullYear();
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}{pageTitle && siteTitle && " | "}{siteTitle}</title>
     <link rel="stylesheet" href="/style.css" />
+    <script is:inline src="/script.js" defer></script>
   </head>
   <body>
     <slot name="navbar" />

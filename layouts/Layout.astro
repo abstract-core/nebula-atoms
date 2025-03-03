@@ -23,7 +23,7 @@ const currentYear = new Date().getFullYear();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
-    {keywords && <meta name="keywords" content={keywords.join()} />}
+    {keywords && <meta name="keywords" content={keywords} />}
     <title>{pageTitle}{pageTitle && siteTitle && " | "}{siteTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />

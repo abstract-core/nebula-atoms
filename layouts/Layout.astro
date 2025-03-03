@@ -2,6 +2,8 @@
 interface Props {
   pageTitle?: string;
   siteTitle?: string;
+  description?: string;
+  keywords?: string;
   since?: string;
   footerIcon?: {
     alt: string;
@@ -9,7 +11,8 @@ interface Props {
   };
 }
 
-const { pageTitle, siteTitle, since, footerIcon } = Astro.props;
+const { pageTitle, siteTitle, description, keywords, since, footerIcon } =
+  Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
@@ -18,9 +21,11 @@ const currentYear = new Date().getFullYear();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    {description && <meta name="description" content={description} />}
+    {keywords && <meta name="keywords" content={keywords.join()} />}
     <title>{pageTitle}{pageTitle && siteTitle && " | "}{siteTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />
     <script is:inline src="/script.js" defer></script>
   </head>

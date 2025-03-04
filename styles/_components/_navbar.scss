@@ -48,7 +48,7 @@ $container-width: 640px !default;
   #navbar-responsive {
     display: flex;
     width: 100%;
-    width: 100%;
+    align-items: center;
   }
   #navbar-brand {
     flex-grow: 1;

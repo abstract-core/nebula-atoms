@@ -1,0 +1,17 @@
+$container-width: 640px !default;
+
+.btn-p {
+  margin-top: 2rem;
+}
+.btn-list {
+  display: flex;
+  gap: 8px;
+}
+
+@media (max-width: $container-width) {
+  .btn-list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+}

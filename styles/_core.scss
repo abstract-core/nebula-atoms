@@ -6,6 +6,9 @@ $container-width: 640px !default;
 @use "./_components/container" with (
   $container-width: $container-width
 );
+@use "./_components/btn" with (
+  $container-width: $container-width
+);
 @use "./_components/footer" with (
   $container-width: $container-width
 );
@@ -13,17 +16,4 @@ $container-width: 640px !default;
 body {
   min-height: 100vh;
   margin: 0;
-}
-
-.btn-list {
-  display: flex;
-  gap: 8px;
-}
-
-@media (max-width: $container-width) {
-  .btn-list {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
 }

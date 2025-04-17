@@ -1,6 +1,6 @@
 {
   "name": "nebula-atoms",
-  "version": "2.2.4",
+  "version": "2.2.5",
   "scripts": {
     "test": "npx vitest"
   },

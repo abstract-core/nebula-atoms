@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import { matchSingleLineSpecialBlock } from "./matchSingleLineSpecialBlock";
+import { videoTransformer } from "./singleLineSpecialBlocksTransformers/videoTransformer";
 
 test("should match special block with only name", () => {
   const inputHtml = `
@@ -20,27 +21,15 @@ test("should match special block with only name", () => {
 test("should match special block with name and arguments", () => {
   const inputHtml = `
       <p>Paragraphe 1</p>
-      <p>{#video VIDEO_ID}</p>
+      <p>{#video VIDEO_PATH}</p>
       <p>Paragraphe 2</p>
     `;
   const outputHtml = matchSingleLineSpecialBlock(inputHtml, {
-    video: (videoId: string) => `<iframe 
-        src="https://www.youtube.com/embed/${videoId}" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>`,
+    video: videoTransformer,
   });
   expect(outputHtml).toBe(`
       <p>Paragraphe 1</p>
-      <iframe 
-        src="https://www.youtube.com/embed/VIDEO_ID" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen>
-      </iframe>
+      <video src="VIDEO_PATH" controls></video>
       <p>Paragraphe 2</p>
     `);
 });

@@ -1,6 +1,6 @@
 {
   "name": "nebula-atoms",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "scripts": {
     "test": "npx vitest"
   },
@@ -10,6 +10,7 @@
     "./ArticleLayout": "./layouts/ArticleLayout.astro",
     "./stringToUrl": "./helpers/stringToUrl.ts",
     "./extendHtml": "./helpers/extendHtml/extendHtml.ts",
+    "./videoTransformer": "./helpers/extendHtml/singleLineSpecialBlocksTransformer/videoTransformer.ts",
     "./carouselTransformer": "./helpers/extendHtml/multipleLinesSpecialBlocksTransformer/carouselTransformer.ts",
     "./dateToString": "./helpers/dateToString.ts",
     "./core": "./styles/_core.scss"

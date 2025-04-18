@@ -2,7 +2,7 @@
 
 `nebula-atoms` is part of the Nebula suite.
 
-    Nebula connects Notion API and GatsbyJS to automatically create static websites.
+    Nebula connects Astro SSG to Notion API & GitHub Actions$$ to automatically create static websites.
 
 Nebula Atoms provides a set of templates and components ready to integrate and display Notion content.
 
@@ -15,7 +15,7 @@ Nebula Atoms provides a set of templates and components ready to integrate and d
     - [Templates](#templates)
       - [`Layout`](#layout)
     - [Helpers](#helpers)
-      - [`extendHtml(html, customElements?: [key: string, html: string][])`](#extendhtmlhtml-customelements-key-string-html-string)
+      - [extendHtml()](#extendhtml)
       - [`stringToUrl(string): string`](#stringtourlstring-string)
       - [`dateToString(date: Date): 'dd-mm-yyyy'`](#datetostringdate-date-dd-mm-yyyy)
     - [Core SCSS](#core-scss)
@@ -37,18 +37,27 @@ npm i nebula-atoms
 
 #### `Layout`
 
-Generic layout with `<slot>` for `<body>` content & `<slot name="navbar">`.
+Generic layout with `<slot>` for `<body>` content, `<slot name="navbar">` & `<slot name="footbar">` (the left side menu, usually dedicated to sitemap).
 
 ### Helpers
 
-#### `extendHtml(html, customElements?: [key: string, html: string][])`
+#### extendHtml()
+
+```typescript
+extendHtml(
+  html: string,
+  specialBlocks?: { [key: string]: (...args: string[]) => string }
+)
+```
 
 Add support for :
 
 - **Thumbnail :** if image is page's first block, put it before h1,
 - **Button-like links :** a block containing only a link, get the "btn" class,
 - **Button-like links group :** multiple button-like links (block) are grouped in a single "btn-list" div
-- **Custom elements :** replace block containg only `{key}` text with given html string.
+- **Special blocks :** replace block(s) containg `{#key ...args}` (single line) or `{#key}<></>...{#key}` (multiple line) text with string the transformer returned.
+
+Automatically add : **img lazy loading**
 
 #### `stringToUrl(string): string`
 

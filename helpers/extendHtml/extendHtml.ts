@@ -7,9 +7,12 @@ import { thumbnailFirst } from "./thumbnailFirst";
 
 export function extendHtml(
   html: string,
-  specialBlocks?: { [key: string]: (...args: string[]) => string }
+  specialBlocks?: { [key: string]: (...args: string[]) => string },
+  disable?: {
+    thumbnailFirst?: boolean;
+  }
 ): string {
-  html = thumbnailFirst(html);
+  !disable?.thumbnailFirst && (html = thumbnailFirst(html));
   html = lazyLoadImg(html);
   html = singleLinkToButton(html);
   html = groupFollowingLinksToButtonList(html);

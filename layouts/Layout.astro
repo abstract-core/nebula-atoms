@@ -1,29 +1,48 @@
 ---
 interface Props {
+  /** Used to set <html lang> & rimarok.com credits in footer*/
+  lang?: "fr" | "en";
+  /** Displayed as first part of <title> */
   pageTitle?: string;
+  /** Displayed as second part of <title> */
   siteTitle?: string;
+  /** Used to fill <meta name="description"> */
   description?: string;
+  /** Used to fill <meta name="keywords"> */
   keywords?: string;
+  /** Used to enable <meta name="robots"> */
+  noIndex?: boolean;
+  /** Displayed in <p id="footer-since"> */
   since?: string;
+  /** Displayed in <img id="footer-icon"> */
   footerIcon?: {
     alt: string;
     src: string;
   };
 }
 
-const { pageTitle, siteTitle, description, keywords, since, footerIcon } =
-  Astro.props;
+const {
+  lang = "fr",
+  pageTitle,
+  siteTitle,
+  description,
+  keywords,
+  noIndex,
+  since,
+  footerIcon,
+} = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     {description && <meta name="description" content={description} />}
     {keywords && <meta name="keywords" content={keywords} />}
+    {noIndex && <meta name="robots" content="noindex" />}
     <title>{pageTitle}{pageTitle && siteTitle && " | "}{siteTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="/style.css" />
@@ -49,8 +68,11 @@ const currentYear = new Date().getFullYear();
           }
         </p>
         <p id="footer-developer">
-          Site développé par <a href="https://rimarok.com">rimarok.com</a>,
-          éco-conception web
+          {
+            lang === "fr"
+              ? `Site développé par <a href="https://rimarok.com">rimarok.com</a> (développement et éco-conception web)`
+              : `Site developed by <a href="https://rimarok.com">rimarok.com</a> (web development and eco-design)`
+          }
         </p>
       </div>
     </footer>

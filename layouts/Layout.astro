@@ -69,9 +69,17 @@ const currentYear = new Date().getFullYear();
         </p>
         <p id="footer-developer">
           {
-            lang === "fr"
-              ? `Site développé par <a href="https://rimarok.com">rimarok.com</a> (développement et éco-conception web)`
-              : `Site developed by <a href="https://rimarok.com">rimarok.com</a> (web development and eco-design)`
+            lang === "fr" ? (
+              <>
+                Site développé par <a href="https://rimarok.com">rimarok.com</a>{" "}
+                (développement et éco-conception web)
+              </>
+            ) : (
+              <>
+                Site developed by <a href="https://rimarok.com">rimarok.com</a>{" "}
+                (web development and eco-design)
+              </>
+            )
           }
         </p>
       </div>

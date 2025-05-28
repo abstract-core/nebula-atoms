@@ -3,6 +3,7 @@ import { lazyLoadImg } from "./lazyLoadImg";
 import { matchMultipleLinesSpecialBlocks } from "./matchMultipleLinesSpecialBlocks";
 import { matchSingleLineSpecialBlock } from "./matchSingleLineSpecialBlock";
 import { carouselTransformer } from "./multipleLinesSpecialBlocksTransformer/carouselTransformer";
+import { linkTransformer } from "./singleLineSpecialBlocksTransformers/linkTransformer";
 import { scriptTransformer } from "./singleLineSpecialBlocksTransformers/scriptTransformer";
 import { videoTransformer } from "./singleLineSpecialBlocksTransformers/videoTransformer";
 import { singleLinkToButton } from "./singleLinkToButton";
@@ -21,6 +22,7 @@ export function extendHtml(
   html = groupFollowingLinksToButtonList(html);
   specialBlocks = {
     carousel: carouselTransformer,
+    link: linkTransformer,
     script: scriptTransformer,
     video: videoTransformer,
     ...specialBlocks,

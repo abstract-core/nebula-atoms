@@ -1,6 +1,6 @@
 {
   "name": "nebula-atoms",
-  "version": "2.2.13",
+  "version": "2.2.14",
   "scripts": {
     "test": "npx vitest"
   },
@@ -11,6 +11,7 @@
     "./stringToUrl": "./helpers/stringToUrl.ts",
     "./extendHtml": "./helpers/extendHtml/extendHtml.ts",
     "./carouselTransformer": "./helpers/extendHtml/multipleLinesSpecialBlocksTransformer/carouselTransformer.ts",
+    "./linkTransformer": "./helpers/extendHtml/singleLineSpecialBlocksTransformers/linkTransformer.ts",
     "./scriptTransformer": "./helpers/extendHtml/singleLineSpecialBlocksTransformers/scriptTransformer.ts",
     "./videoTransformer": "./helpers/extendHtml/singleLineSpecialBlocksTransformers/videoTransformer.ts",
     "./dateToString": "./helpers/dateToString.ts",

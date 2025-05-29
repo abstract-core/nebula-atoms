@@ -57,5 +57,7 @@ $container-width: 640px !default;
     flex-direction: column;
     width: 100%;
     align-items: end;
+    z-index: 1;
+    margin: 24px 0;
   }
 }
